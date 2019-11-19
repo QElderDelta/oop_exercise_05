@@ -1,0 +1,478 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{cmap}
+\usepackage[12pt]{extsizes}			
+\usepackage{mathtext} 				
+\usepackage[T2A]{fontenc}			
+\usepackage[utf8]{inputenc}			
+\usepackage[english,russian]{babel}
+\usepackage{setspace}
+\singlespacing
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+\usepackage{fancyhdr}
+\usepackage{soulutf8}
+\usepackage{euscript}
+\usepackage{mathrsfs}
+\usepackage{listings}
+\pagestyle{fancy}
+\usepackage{indentfirst}
+\usepackage[top=10mm]{geometry}
+\rhead{}
+\lhead{}
+\renewcommand{\headrulewidth}{0mm}
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\usepackage[dvipsnames]{xcolor}
+
+\lstdefinestyle{mystyle}{ 
+	keywordstyle=\color{OliveGreen},
+	numberstyle=\tiny\color{Gray},
+	stringstyle=\color{BurntOrange},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+\thispagestyle{empty}	
+\begin{center}
+	Московский авиационный институт
+	
+	(Национальный исследовательский университет)
+	
+	Факультет "Информационные технологии и прикладная математика"
+	
+\end{center}
+\vspace{40ex}
+\begin{center}
+	\textbf{\large{Лабораторная работа №4 по курсу \textquotedblleft Объектно-ориентированное программирование\textquotedblright}}
+\end{center}
+\vspace{40ex}
+\begin{flushright}
+	\textit{Студент: } Живалев Е.А.
+	
+	\vspace{2ex}
+	\textit{Группа: } М8О-206Б
+	
+	\vspace{2ex}
+	\textit{Преподаватель: } Журавлев А.А.
+	
+	\vspace{2ex}
+	\textit{Вариант: } 5
+	
+	\vspace{2ex}
+	\textit{Оценка: } \underline{\quad\quad\quad\quad\quad\quad}
+	
+	 \vspace{2ex}
+	\textit{Дата: } \underline{\quad\quad\quad\quad\quad\quad}
+	
+\end{flushright}
+
+\begin{vfill}
+	\begin{center}
+		Москва
+		
+		2019
+	\end{center}	
+\end{vfill}
+\newpage
+\section{Исходный код}
+
+Ссылка на github : https://github.com/QElderDelta/oop\_exercise\_05
+
+\vspace{3ex}
+\textbf{\large{vertex.hpp}}
+\lstinputlisting[language=C++]{vertex.hpp}
+
+\vspace{3ex}
+\textbf{\large{rhombus.hpp}}
+\lstinputlisting[language=C++]{rhombus.hpp}
+
+\vspace{3ex}
+\textbf{\large{stack.hpp}}
+\lstinputlisting[language=C++]{stack.hpp}
+
+
+\vspace{3ex}
+\textbf{\large{main.cpp}}
+\lstinputlisting[language=C++]{main.cpp}
+
+\vspace{3ex}
+\textbf{\large{CMakeLists.txt}}
+\lstinputlisting{CMakeLists.txt}
+
+%\vspace{3ex}
+%\textbf{\large{meson.build}}
+%\lstinputlisting{meson.build}
+\newpage
+\section{Тестирование}
+\vspace{3ex}
+
+Набор входных данных для всех тестов одинаковый - ромбы с координатами ([-1, -1], [-1, 1], [1, 1],
+[1, -1]), ([-2, -2], [-2, 2], [2, 2], [2, -2]), ([-3, -3], [-3, 3], [3, 3], [3, -3]),
+([-4, -4], [-4, 4], [4, 4], [4, -4]). Различия заключаются в методах добавления и удаления этих фигур в стек.
+
+\textbf{test\_01.txt}:
+
+Добавим фигуры в стек с помощью метода push и напечатаем их. Затем с помощью count\_if найдем количество ромбов с площадями меньше 4, 16, 36, 64, 81(0, 1, 2, 3, 4 соответственно). Удалим все фигуры из стека с помощью метода pop, перед каждым вызовом которого, выведем элемент на верху стека с помощью функции top. 
+
+Результат:
+
+1 - add element to stack(push/insert by iterator)
+
+2 - delete element from stack(pop/erase by index/erase by iterator)
+
+3 - range-based for print
+
+4 - count\_if example
+
+5 - top element
+
+Enter coordinates
+
+1 - push to stack
+
+2 - insert by iterator
+
+Enter coordinates
+
+1 - push to stack
+
+2 - insert by iterator
+
+Enter coordinates
+
+1 - push to stack
+
+2 - insert by iterator
+
+Enter coordinates
+
+1 - push to stack
+
+2 - insert by iterator
+
+Rhombus: [-4.000, -4.000] [-4.000, 4.000] [4.000, 4.000] [4.000, -4.000] 
+
+Rhombus: [-3.000, -3.000] [-3.000, 3.000] [3.000, 3.000] [3.000, -3.000] 
+
+Rhombus: [-2.000, -2.000] [-2.000, 2.000] [2.000, 2.000] [2.000, -2.000] 
+
+Rhombus: [-1.000, -1.000] [-1.000, 1.000] [1.000, 1.000] [1.000, -1.000] 
+
+Enter required square
+
+Number of rhombes with area less than 4 equals 0
+
+Enter required square
+
+Number of rhombes with area less than 16 equals 1
+
+Enter required square
+
+Number of rhombes with area less than 36 equals 3
+
+Enter required square
+
+Number of rhombes with area less than 64 equals 3
+
+Enter required square
+
+Number of rhombes with area less than 81 equals 4
+
+Top: Rhombus: [-4.000, -4.000] [-4.000, 4.000] [4.000, 4.000] [4.000, -4.000] 
+
+1 - pop
+
+2 - erase by index
+
+3 - erase by iterator
+
+Top: Rhombus: [-3.000, -3.000] [-3.000, 3.000] [3.000, 3.000] [3.000, -3.000] 
+
+1 - pop
+
+2 - erase by index
+
+3 - erase by iterator
+
+Top: Rhombus: [-2.000, -2.000] [-2.000, 2.000] [2.000, 2.000] [2.000, -2.000] 
+
+1 - pop
+
+2 - erase by index
+
+3 - erase by iterator
+
+Top: Rhombus: [-1.000, -1.000] [-1.000, 1.000] [1.000, 1.000] [1.000, -1.000] 
+
+1 - pop
+
+2 - erase by index
+
+3 - erase by iterator
+
+Stack is empty
+
+
+
+
+
+
+\vspace{3ex}
+
+\textbf{test\_02.txt} 
+
+То же самое, что и предыдущем тесте, кроме того, что фигуры добавляются в стек по итератору на 0,1,1,2 места соответственно.
+
+Результат:
+
+1 - add element to stack(push/insert by iterator)
+
+2 - delete element from stack(pop/erase by index/erase by iterator)
+
+3 - range-based for print
+
+4 - count\_if example
+
+5 - top element
+
+Enter coordinates
+
+1 - push to stack
+
+2 - insert by iterator
+
+Enter index
+
+Enter coordinates
+
+1 - push to stack
+
+
+2 - insert by iterator
+
+Enter index
+
+Enter coordinates
+
+1 - push to stack
+
+2 - insert by iterator
+
+Enter index
+
+
+Enter coordinates
+
+1 - push to stack
+
+2 - insert by iterator
+
+Enter index
+
+Rhombus: [-1.000, -1.000] [-1.000, 1.000] [1.000, 1.000] [1.000, -1.000] 
+
+Rhombus: [-3.000, -3.000] [-3.000, 3.000] [3.000, 3.000] [3.000, -3.000] 
+
+Rhombus: [-4.000, -4.000] [-4.000, 4.000] [4.000, 4.000] [4.000, -4.000] 
+
+Rhombus: [-2.000, -2.000] [-2.000, 2.000] [2.000, 2.000] [2.000, -2.000] 
+
+Enter required square
+
+Number of rhombes with area less than 4 equals 0
+
+Enter required square
+
+Number of rhombes with area less than 16 equals 1
+
+Enter required square
+
+Number of rhombes with area less than 36 equals 3
+
+Enter required square
+
+Number of rhombes with area less than 64 equals 3
+
+Enter required square
+
+Number of rhombes with area less than 81 equals 4
+
+Top: Rhombus: [-1.000, -1.000] [-1.000, 1.000] [1.000, 1.000] [1.000, -1.000] 
+
+1 - pop
+
+2 - erase by index
+
+3 - erase by iterator
+
+Top: Rhombus: [-3.000, -3.000] [-3.000, 3.000] [3.000, 3.000] [3.000, -3.000] 
+
+1 - pop
+
+2 - erase by index
+
+3 - erase by iterator
+
+Top: Rhombus: [-4.000, -4.000] [-4.000, 4.000] [4.000, 4.000] [4.000, -4.000] 
+
+1 - pop
+
+2 - erase by index
+
+3 - erase by iterator
+
+Top: Rhombus: [-2.000, -2.000] [-2.000, 2.000] [2.000, 2.000] [2.000, -2.000] 
+
+1 - pop
+
+2 - erase by index
+
+3 - erase by iterator
+
+Stack is empty
+
+\vspace{3ex}
+
+\textbf{test\_03.txt} 
+
+То же самое, что и предыдущем тесте, кроме того, что фигуры удаляются из стека по индексу в следующем порядке: 3-я, 3-я, 1-я, 1-я. После каждого удаления происходит печать стека.
+
+Результат:
+
+1 - add element to stack(push/insert by iterator)
+
+2 - delete element from stack(pop/erase by index/erase by iterator)
+
+3 - range-based for print
+
+4 - count\_if example
+
+5 - top element
+
+Enter coordinates
+
+1 - push to stack
+
+2 - insert by iterator
+
+Enter index
+
+Enter coordinates
+
+1 - push to stack
+
+2 - insert by iterator
+
+Enter index
+
+Enter coordinates
+
+1 - push to stack
+
+2 - insert by iterator
+
+Enter index
+
+Enter coordinates
+
+1 - push to stack
+
+2 - insert by iterator
+
+Enter index
+
+Rhombus: [-1.000, -1.000] [-1.000, 1.000] [1.000, 1.000] [1.000, -1.000] 
+
+Rhombus: [-3.000, -3.000] [-3.000, 3.000] [3.000, 3.000] [3.000, -3.000] 
+
+Rhombus: [-4.000, -4.000] [-4.000, 4.000] [4.000, 4.000] [4.000, -4.000] 
+
+Rhombus: [-2.000, -2.000] [-2.000, 2.000] [2.000, 2.000] [2.000, -2.000] 
+
+Enter required square
+
+Number of rhombes with area less than 4 equals 0
+
+Enter required square
+
+Number of rhombes with area less than 16 equals 1
+
+Enter required square
+
+Number of rhombes with area less than 36 equals 3
+
+Enter required square
+
+Number of rhombes with area less than 64 equals 3
+
+Enter required square
+
+Number of rhombes with area less than 81 equals 4
+
+Top: Rhombus: [-1.000, -1.000] [-1.000, 1.000] [1.000, 1.000] [1.000, -1.000] 
+
+1 - pop
+
+2 - erase by index
+
+3 - erase by iterator
+
+Enter index
+
+Rhombus: [-1.000, -1.000] [-1.000, 1.000] [1.000, 1.000] [1.000, -1.000] 
+
+Rhombus: [-3.000, -3.000] [-3.000, 3.000] [3.000, 3.000] [3.000, -3.000] 
+
+Rhombus: [-2.000, -2.000] [-2.000, 2.000] [2.000, 2.000] [2.000, -2.000] 
+
+1 - pop
+
+2 - erase by index
+
+3 - erase by iterator
+
+Enter index
+
+Rhombus: [-1.000, -1.000] [-1.000, 1.000] [1.000, 1.000] [1.000, -1.000] 
+
+Rhombus: [-3.000, -3.000] [-3.000, 3.000] [3.000, 3.000] [3.000, -3.000] 
+
+1 - pop
+
+2 - erase by index
+
+3 - erase by iterator
+
+Enter index
+
+Rhombus: [-3.000, -3.000] [-3.000, 3.000] [3.000, 3.000] [3.000, -3.000] 
+
+1 - pop
+
+2 - erase by index
+
+3 - erase by iterator
+
+Enter index
+\newpage
+
+\section{Объяснение результатов работы программы}
+
+При вводе координат для создания ромба производится проверка этих координат, ведь они могут не образовывать ромб. Для этого реализована функция checkIfRhombus, которая вычисляет расстояния от одной точки до трёх остальных, а поскольку фигура является ромбом, то два из низ должны быть равны. Третье же значение функция возвращает ведь оно равно длине одной из диагоналей. Площадь ромба вычисляется как половина произведения диагоналей, центр - точка пересечения диагоналей.   
+
+\newpage
+\section{Выводы}
+
+Умные указатели при грамотном использовании позволяют сильно сэкономить время на выявление утечек памяти и исправления их. Однако при первом их использовании не так просто написать корректно работающую программу, ведь они несколько отличаются от сырых указателей и, соответственно, методов работы с ними.
+\end{document}
