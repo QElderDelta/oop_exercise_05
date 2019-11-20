@@ -2,6 +2,7 @@
 
 #include <iterator>
 #include <memory>
+#include <iostream>
 
 namespace cntrs {
 
@@ -126,13 +127,6 @@ void stack_t<T>::insert(const int& pos, const T& value) {
     int i = 0;
     auto temp = this->begin();
     if(pos == 0) {
-        insert(temp, value);
-        return;
-    } else if(pos == 1) {
-        if(temp.ptr_ == nullptr) {
-            throw std::logic_error("Out of bounds");
-        }
-        ++temp;
         insert(temp, value);
         return;
     }
