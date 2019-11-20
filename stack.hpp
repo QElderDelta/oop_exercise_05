@@ -45,7 +45,6 @@ private:
     };   
     std::unique_ptr<node_t> head = nullptr;
     node_t* tail = nullptr;
-    void insert_impl(std::unique_ptr<node_t> current, const T& value);
 };
 
 template<class T>
@@ -131,7 +130,7 @@ void stack_t<T>::insert(const int& pos, const T& value) {
         return;
     } else if(pos == 1) {
         if(temp.ptr_ == nullptr) {
-            throw std::logic_error("2:out of bounds");
+            throw std::logic_error("Out of bounds");
         }
         ++temp;
         insert(temp, value);
@@ -145,7 +144,7 @@ void stack_t<T>::insert(const int& pos, const T& value) {
         ++i;
     }
     if(i < pos) {
-        throw std::logic_error("2:out of bounds");
+        throw std::logic_error("Out of bounds");
     }
     this->insert(temp, value);
 }
