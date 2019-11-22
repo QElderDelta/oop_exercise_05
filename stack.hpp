@@ -46,6 +46,8 @@ private:
     };   
     std::unique_ptr<node_t> head = nullptr;
     node_t* tail = nullptr;
+    stack_t(const stack_t&);
+    stack_t& operator=(const stack_t&);
 };
 
 template<class T>
