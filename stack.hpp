@@ -37,6 +37,8 @@ public:
     void pop();
     T top();
     void push(const T& value);
+    stack_t() = default;
+    stack_t(const stack_t&) = delete;
 private:
     struct node_t {
         T value;
@@ -46,7 +48,6 @@ private:
     };   
     std::unique_ptr<node_t> head = nullptr;
     node_t* tail = nullptr;
-    stack_t(const stack_t&);
     stack_t& operator=(const stack_t&);
 };
 
